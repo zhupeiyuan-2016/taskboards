@@ -1,9 +1,5 @@
 # TaskBoards
 [![bootstrap](https://img.shields.io/badge/bootstrap-3.3.7-green.svg)](https://v3.bootcss.com/)
-<<<<<<< HEAD
-=======
-
->>>>>>> test
 [![bootstrap--datepicker](https://img.shields.io/badge/bootstrap--datepicker-1.8.0-blue.svg)](https://github.com/eternicode/bootstrap-datepicker)
 [![hitokoto](https://img.shields.io/badge/hitokoto-v1-Pink.svg)](https://hitokoto.cn/)
 ## 简介
