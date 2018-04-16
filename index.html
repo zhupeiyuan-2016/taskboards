@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,9 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css"
-        integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" />
+        integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" /> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script> 
 </head>
 
 <body>
@@ -82,7 +83,7 @@
                         </button>
                         <h4 class="modal-title" id="myModalLabel">ssss</h4>
                     </div>
-                    <div class="modal-body" tabindex="-1" >
+                    <div class="modal-body" tabindex="-1">
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <label for="inputTitle" class="col-sm-2 control-label">事件:</label>
@@ -116,7 +117,9 @@
                 </div>
             </div>
         </div>
-
+    <button id="clear">清除</button>
+    <button id="find">查看</button>
+    <button id="add">添加</button>
     </div>
 </body>
 <script>
@@ -132,7 +135,7 @@
     xhr.send();
     $('.panel-title').on('click', function (e) {
         $('#myModalLabel')[0].innerHTML = e.target.innerHTML;
-        
+
         $('#myModal').modal()
     })
     $('.input-daterange').datepicker({
@@ -140,6 +143,29 @@
         autoclose: true,
         todayHighlight: true
     });
+</script>
+<script src="./localstorage.js"></script>
+<script src="./getdata.js"></script>
+<script>
+    const a = new curl();
+    var put = {
+        Doing: '我吃第一次饭',
+        Date: '2018年03月25日',
+        Add:'ssssssss'
+    };
+    var clear = document.getElementById('clear');
+    clear.onclick = function () {
+        a.Clear();
+    }
+    var find = document.getElementById('find');
+    find.onclick = function () {
+        a.GetToDoing()
+    }
+    var add = document.getElementById('add');
+    add.onclick = function(){
+        console.log('添加');
+        a.PushToDoing(put)
+    }
 </script>
 
 </html>
