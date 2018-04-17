@@ -32,15 +32,33 @@ curl.prototype.GetEd = function () {
     const Ed = JSON.parse(localStorage.getItem("Ed"));
     return Ed;
 }
+curl.prototype.Push =  function (e, data) {
+    if (e = 'ToDoing') {
+        this.PushToDoing(data);
+    } else if (e = 'Doing') {
+        this.PushDoing(data);
+    } else if (e = 'Ed'){
+        this.PushEd(data);
+    }else {
+        return 0 ;
+    }
+};
 curl.prototype.PushToDoing = function (e) {
     let data = [];
     ToDoing = this.GetToDoing();
     if (!ToDoing) {
-        e.Id = 0;
-        data[0] = e;
+        e.Id = '0';
+        data.push (e);
+        console.log(data);
+        const flag = JSON.stringify(data);
+        console.log(flag);
+        console.log(JSON.parse(flag))
+
+        console.log('第一次输入')
         localStorage.setItem("ToDoing", JSON.stringify(data));
         return 0;
     };
+    console.log('第n次输入')
     let Id = ToDoing[ToDoing.length - 1].Id;
     e.Id = ++Id;
     ToDoing.push(e);
