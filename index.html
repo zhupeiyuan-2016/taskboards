@@ -35,7 +35,7 @@
             <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">准备做</h4>
+                        <h4 class="panel-title">ToDoing</h4>
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
@@ -49,7 +49,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <!---->
-                        <h4 class="panel-title">正在做</h4>
+                        <h4 class="panel-title">Doing</h4>
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
@@ -63,7 +63,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <!---->
-                        <h4 class="panel-title">已经做</h4>
+                        <h4 class="panel-title">Ed</h4>
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <label for="inputData" class="col-sm-2 control-label">备注</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3"></textarea>
+                                    <textarea class="form-control" rows="3" ></textarea>
                                 </div>
                             </div>
                         </form>
@@ -147,25 +147,13 @@
 <script src="./localstorage.js"></script>
 <script src="./getdata.js"></script>
 <script>
-    const a = new curl();
-    var put = {
-        Doing: '我吃第一次饭',
-        Date: '2018年03月25日',
-        Add:'ssssssss'
-    };
-    var clear = document.getElementById('clear');
-    clear.onclick = function () {
-        a.Clear();
-    }
     var find = document.getElementById('find');
-    find.onclick = function () {
-        a.GetToDoing()
+    var clear = document.getElementById('clear');
+    find.onclick = function(){
+        local.GetToDoing();
     }
-    var add = document.getElementById('add');
-    add.onclick = function(){
-        console.log('添加');
-        a.PushToDoing(put)
+    clear.onclick = function(){
+        local.Clear();
     }
 </script>
-
 </html>
