@@ -4,7 +4,6 @@ function RemoveArr(Id, Arr) {
     Arr[Id] = 0;
     for (let i = 0; i < Arr.length; i++) {
         if (Arr[i] != 0) {
-            console.log(i)
             NewData.push(Arr[i])
         }
     }
@@ -16,49 +15,53 @@ function curl(data) {
 };
 //JSON.stringify 把一个对象转换成json字符串， 
 //JSON.parse 把一个json字符串解析成对象
+curl.prototype.Get = function (e) {
+    if (e == 'ToDoing') {
+        console.log(e);
+        this.GetToDoing();
+    } else if (e == 'Doing') {
+        this.GetDoing();
+    } else if (e == 'Ed') {
+        this.GetEd();
+    } else {
+        return 0;
+    }
+}
+
 curl.prototype.GetToDoing = function () {
-    console.log('获取讲要做的事情');
     const ToDoing = JSON.parse(localStorage.getItem("ToDoing"));
-    console.log(ToDoing)
-    return ToDoing;
+    console.log(ToDoing);
+     return ToDoing;
 }
 curl.prototype.GetDoing = function () {
-    console.log('获取正在做的事情');
     const Doing = JSON.parse(localStorage.getItem("Doing"));
     return Doing;
 }
 curl.prototype.GetEd = function () {
-    console.log('获取已经完成的事情');
     const Ed = JSON.parse(localStorage.getItem("Ed"));
     return Ed;
 }
-curl.prototype.Push =  function (e, data) {
-    if (e = 'ToDoing') {
+curl.prototype.Push = function (e, data) {
+    if (e == 'ToDoing') {
         this.PushToDoing(data);
-    } else if (e = 'Doing') {
+    } else if (e == 'Doing') {
         this.PushDoing(data);
-    } else if (e = 'Ed'){
+    } else if (e == 'Ed') {
         this.PushEd(data);
-    }else {
-        return 0 ;
+    } else {
+        return 0;
     }
 };
 curl.prototype.PushToDoing = function (e) {
     let data = [];
     ToDoing = this.GetToDoing();
     if (!ToDoing) {
-        e.Id = '0';
-        data.push (e);
-        console.log(data);
+        e.Id = 0;
+        data.push(e);
         const flag = JSON.stringify(data);
-        console.log(flag);
-        console.log(JSON.parse(flag))
-
-        console.log('第一次输入')
         localStorage.setItem("ToDoing", JSON.stringify(data));
         return 0;
     };
-    console.log('第n次输入')
     let Id = ToDoing[ToDoing.length - 1].Id;
     e.Id = ++Id;
     ToDoing.push(e);

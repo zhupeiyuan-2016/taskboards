@@ -11,9 +11,9 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css"
-        integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" /> 
+        integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                     <div class="panel-body">
                         <div class="tasks list-group">
                             <div class="task list-group-item" draggable="false">水电费</div>
-                            <div class="task list-group-item">lll</div>
+     
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">ssss</h4>
+                        <h4 class="modal-title" id="myModalLabel">ToDoing</h4>
                     </div>
                     <div class="modal-body" tabindex="-1">
                         <form class="form-horizontal">
@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <label for="inputData" class="col-sm-2 control-label">备注</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" rows="3" ></textarea>
+                                    <textarea class="form-control" rows="3" id="AddData"></textarea>
                                 </div>
                             </div>
                         </form>
@@ -117,9 +117,9 @@
                 </div>
             </div>
         </div>
-    <button id="clear">清除</button>
-    <button id="find">查看</button>
-    <button id="add">添加</button>
+        <button id="clear">清除</button>
+        <button id="find">查看</button>
+        <button id="add">添加</button>
     </div>
 </body>
 <script>
@@ -149,11 +149,17 @@
 <script>
     var find = document.getElementById('find');
     var clear = document.getElementById('clear');
-    find.onclick = function(){
+    var add = document.getElementById('add');
+    // const local = new curl();
+    find.onclick = function () {
         local.GetToDoing();
     }
-    clear.onclick = function(){
+    clear.onclick = function () {
         local.Clear();
     }
+    add.onclick = () => {
+        // local.Push(e,data)
+    }
 </script>
+
 </html>
