@@ -14,6 +14,11 @@
         integrity="sha256-JDBcnYeV19J14isGd3EtnsCQK05d8PczJ5+fvEvBJvI=" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+    <style>
+        .list-group-item span {
+            float: right;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,8 +44,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
-                            <div class="task list-group-item" draggable="false">水电费</div>
-     
+                            <div class="task list-group-item" data-id="0" data-toggle="popover" title="更多" data-placement="top" data-content="第三方">吃饭</div>
                         </div>
                     </div>
                 </div>
@@ -53,8 +57,6 @@
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
-                            <div class="task list-group-item" draggable="false">水电费</div>
-                            <div class="task list-group-item">lll</div>
                         </div>
                     </div>
                 </div>
@@ -67,8 +69,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="tasks list-group">
-                            <div class="task list-group-item" draggable="false">水电费</div>
-                            <div class="task list-group-item">lll</div>
+
                         </div>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary">保存</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
                     </div>
                 </div>
             </div>
@@ -120,6 +121,7 @@
         <button id="clear">清除</button>
         <button id="find">查看</button>
         <button id="add">添加</button>
+
     </div>
 </body>
 <script>

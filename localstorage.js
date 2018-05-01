@@ -17,21 +17,27 @@ function curl(data) {
 //JSON.parse 把一个json字符串解析成对象
 curl.prototype.Get = function (e) {
     if (e == 'ToDoing') {
-        console.log(e);
-        this.GetToDoing();
+        return this.GetToDoing();
     } else if (e == 'Doing') {
-        this.GetDoing();
+        return this.GetDoing();
     } else if (e == 'Ed') {
-        this.GetEd();
+        return this.GetEd();
     } else {
         return 0;
+    }
+}
+curl.prototype.GetMore = function (e, id) {
+    const data = this.Get(e);
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].Id == id) {
+            return data[i];
+        }
     }
 }
 
 curl.prototype.GetToDoing = function () {
     const ToDoing = JSON.parse(localStorage.getItem("ToDoing"));
-    console.log(ToDoing);
-     return ToDoing;
+    return ToDoing;
 }
 curl.prototype.GetDoing = function () {
     const Doing = JSON.parse(localStorage.getItem("Doing"));
@@ -43,11 +49,11 @@ curl.prototype.GetEd = function () {
 }
 curl.prototype.Push = function (e, data) {
     if (e == 'ToDoing') {
-        this.PushToDoing(data);
+        return this.PushToDoing(data);
     } else if (e == 'Doing') {
-        this.PushDoing(data);
+        return this.PushDoing(data);
     } else if (e == 'Ed') {
-        this.PushEd(data);
+        return this.PushEd(data);
     } else {
         return 0;
     }
